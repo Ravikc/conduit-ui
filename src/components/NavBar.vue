@@ -1,38 +1,40 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-light container">
     <a class="navbar-brand" href="#">Conduit</a>
 
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+          <router-link to="" class="nav-link">Home</router-link>
         </li>
-        <li class="nav-item" v-if="auth.isUserLoggedIn">
+        <li class="nav-item" v-if="isUserLoggedIn">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <router-link to="" class="nav-link">
                 <i class="fas fa-edit"></i>
                 <span>New Article</span>
-              </a>
+              </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <router-link to="" class="nav-link">
                 <i class="fas fa-cog"></i>
                 <span>Settings</span>
-              </a>
+              </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">{{ auth.userName }}</a>
+              <router-link :to="'/@' + user.username" class="nav-link">
+                {{ user.username }}
+              </router-link>
             </li>
           </ul>
         </li>
         <li class="nav-item" v-else>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Sign In</a>
+              <router-link to="signin" class="nav-link">Sign In</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Sign Up</a>
+              <router-link to="signup" class="nav-link">Sign Up</router-link>
             </li>
           </ul>
         </li>
@@ -42,12 +44,11 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   name: "NavBar",
   computed: {
-    ...mapGetters(["auth"]),
-    ...mapActions(["setJwtToken"])
+    ...mapGetters(["user", "isUserLoggedIn"])
   }
 };
 </script>
@@ -59,6 +60,7 @@ export default {
 
 .navbar-brand {
   font-family: "Titillium Web", sans-serif;
+  font-size: 12px;
   color: #3d8b3d;
   font-weight: bolder;
   transform: scale(2, 1.5);
