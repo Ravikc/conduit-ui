@@ -3,6 +3,8 @@ import Router from "vue-router";
 import SignUp from "./views/SignUp";
 import SignIn from "./views/SignIn";
 import Profile from "./views/Profile";
+import Settings from "./views/Settings";
+import ArticleList from "./views/ArticleList";
 Vue.use(Router);
 
 export default new Router({
@@ -20,15 +22,20 @@ export default new Router({
       component: SignUp
     },
     {
+      path: "/settings",
+      name: "settings",
+      component: Settings
+    },
+    {
       path: "/@:userName",
       name: "profile",
-      component: Profile
-      // children: [
-      //   {
-      //     path: "favourites",
-      //     component:
-      //   }
-      // ]
+      component: Profile,
+      children: [
+        {
+          path: "favourites",
+          component: ArticleList
+        }
+      ]
     },
     {
       path: "/about",
