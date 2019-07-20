@@ -33,7 +33,7 @@ export default new Router({
       component: Profile,
       children: [
         {
-          path: "favourites",
+          path: "/@:userName/favourites",
           component: ArticleList
         }
       ]
