@@ -5,6 +5,7 @@ import SignIn from "./views/SignIn";
 import Profile from "./views/Profile";
 import Settings from "./views/Settings";
 import ArticleList from "./views/ArticleList";
+
 Vue.use(Router);
 
 export default new Router({
