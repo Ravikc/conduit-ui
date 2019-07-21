@@ -1,11 +1,20 @@
 <template>
   <div>
-    This is article list.
-  </div></template
->
+    <article-preview></article-preview>
+    <article-preview></article-preview>
+    <article-preview></article-preview>
+    <article-preview></article-preview>
+  </div>
+</template>
 
 <script>
-export default {};
+import ArticlePreview from "@/components/ArticlePreview";
+export default {
+  name: "ArticleList",
+  components: {
+    ArticlePreview
+  }
+};
 </script>
 
 <style></style>

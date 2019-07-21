@@ -32,6 +32,9 @@
           </div>
         </form>
         <hr />
+        <button class="btn btn-outline-danger float-left">
+          Or click here to logout.
+        </button>
       </div>
     </div>
   </div>

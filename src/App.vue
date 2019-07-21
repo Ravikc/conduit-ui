@@ -2,6 +2,9 @@
   <div>
     <nav-bar />
     <router-view></router-view>
+    <footer class="text-center p-5">
+      Copyright @ ravi
+    </footer>
   </div>
 </template>
 
