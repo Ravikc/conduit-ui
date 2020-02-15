@@ -13,7 +13,10 @@
             <span class="user-name"> {{ user.username }} </span>
           </div>
           <div class="row justify-content-end">
-            <button class="btn btn-outline-secondary">
+            <button
+              class="btn btn-outline-secondary"
+              @click="$router.push('/settings')"
+            >
               <i class="fas fa-cog"></i>
               <span class="mx-2">Edit Profile Settings</span>
             </button>

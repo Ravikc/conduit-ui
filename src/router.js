@@ -5,6 +5,7 @@ import SignIn from "./views/SignIn";
 import Profile from "./views/Profile";
 import Settings from "./views/Settings";
 import ArticleList from "./views/ArticleList";
+import Home from "./views/Home";
 
 Vue.use(Router);
 
@@ -12,6 +13,11 @@ export default new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: "/home",
+      name: "home",
+      component: Home
+    },
     {
       path: "/signin",
       name: "signin",

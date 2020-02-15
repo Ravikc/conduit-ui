@@ -1,11 +1,11 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light container">
-    <a class="navbar-brand" href="#">Conduit</a>
+    <router-link to="/home" class="navbar-brand">Conduit</router-link>
 
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <router-link to="" class="nav-link">Home</router-link>
+          <router-link to="/home" class="nav-link">Home</router-link>
         </li>
         <li class="nav-item" v-if="isUserLoggedIn">
           <ul class="navbar-nav ml-auto">
@@ -16,7 +16,7 @@
               </router-link>
             </li>
             <li class="nav-item">
-              <router-link to="settings" class="nav-link">
+              <router-link to="/settings" class="nav-link">
                 <i class="fas fa-cog"></i>
                 <span>Settings</span>
               </router-link>

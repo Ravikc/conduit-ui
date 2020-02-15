@@ -16,7 +16,7 @@ export const store = new Vuex.Store({
   },
   getters: {
     user: state => state.user,
-    isUserLoggedIn: state => state.user.token
+    isUserLoggedIn: state => state.user && state.user.token
   },
   actions: {
     setUser: ({ commit }, user) => {
@@ -24,6 +24,9 @@ export const store = new Vuex.Store({
     },
     setUserFromLocalStorage: ({ commit }) => {
       commit("setUserFromLocalStorage");
+    },
+    logout: ({ commit }) => {
+      commit("logout");
     }
   },
   mutations: {
@@ -37,6 +40,10 @@ export const store = new Vuex.Store({
     setUserFromLocalStorage: state => {
       const user = localStorage.getItem(CONSTANTS.LOCAL_STORAGE_USER_INFO_KEY);
       state.user = JSON.parse(user);
+    },
+    logout: state => {
+      localStorage.clear();
+      state.user = null;
     }
   }
 });

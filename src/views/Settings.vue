@@ -18,7 +18,12 @@
             :rows="5"
             placeholder="Short bio about you"
           />
-          <base-input v-model="email" placeholder="Email" size="lg" />
+          <base-input
+            v-model="email"
+            placeholder="Email"
+            size="lg"
+            :disabled="true"
+          />
           <base-input
             v-model="password"
             placeholder="Password"
@@ -32,7 +37,7 @@
           </div>
         </form>
         <hr />
-        <button class="btn btn-outline-danger float-left">
+        <button class="btn btn-outline-danger float-left" @click="onLogout">
           Or click here to logout.
         </button>
       </div>
@@ -43,7 +48,9 @@
 <script>
 import BaseInput from "@/components/BaseComponents/BaseInput";
 import BaseTextArea from "@/components/BaseComponents/BaseTextArea";
-import { mapGetters } from "vuex";
+import CONSTANTS from "@/constants";
+import axios from "axios";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Settings",
@@ -64,8 +71,30 @@ export default {
     ...mapGetters(["user"])
   },
   methods: {
-    onFormSubmit() {
-      console.log("form submitted");
+    ...mapActions(["logout"]),
+    async onFormSubmit() {
+      await axios({
+        method: "put",
+        baseURL: CONSTANTS.BASE_URL,
+        url: "/users",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${this.user.token}`
+        },
+        data: {
+          user: {
+            userName: this.userName,
+            email: this.email,
+            bio: this.bio,
+            password: this.password,
+            image: this.profilePictureUrl
+          }
+        }
+      });
+    },
+    onLogout() {
+      this.logout();
+      this.$router.replace("/home");
     }
   },
   created() {

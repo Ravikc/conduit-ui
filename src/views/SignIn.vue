@@ -64,6 +64,7 @@ export default {
         this.sendingRequest = true;
         const response = await this.login();
         this.setUser(response.data.user);
+        this.$router.replace("/home");
       } catch (e) {
         if (e.response.status === 400 || e.response.status === 422) {
           this.errors = e.response.data.errors.body;
