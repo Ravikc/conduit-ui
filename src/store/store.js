@@ -1,49 +1,16 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import CONSTANTS from "@/constants";
+
+import STATE from "@/store/state";
+import MUTATIONS from "@/store/mutations";
+import GETTERS from "@/store/getters";
+import ACTIONS from "@/store/actions";
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
-  state: {
-    user: {
-      email: null,
-      token: null,
-      username: null,
-      bio: null,
-      image: null
-    }
-  },
-  getters: {
-    user: state => state.user,
-    isUserLoggedIn: state => state.user && state.user.token
-  },
-  actions: {
-    setUser: ({ commit }, user) => {
-      commit("setUser", user);
-    },
-    setUserFromLocalStorage: ({ commit }) => {
-      commit("setUserFromLocalStorage");
-    },
-    logout: ({ commit }) => {
-      commit("logout");
-    }
-  },
-  mutations: {
-    setUser: (state, user) => {
-      state.user = user;
-      localStorage.setItem(
-        CONSTANTS.LOCAL_STORAGE_USER_INFO_KEY,
-        JSON.stringify(user)
-      );
-    },
-    setUserFromLocalStorage: state => {
-      const user = localStorage.getItem(CONSTANTS.LOCAL_STORAGE_USER_INFO_KEY);
-      state.user = JSON.parse(user);
-    },
-    logout: state => {
-      localStorage.clear();
-      state.user = null;
-    }
-  }
+  state: STATE,
+  mutations: MUTATIONS,
+  getters: GETTERS,
+  actions: ACTIONS
 });

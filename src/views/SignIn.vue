@@ -25,9 +25,9 @@
           />
         </div>
         <button
-          @click.prevent="submit"
-          class="btn btn-success float-right"
           :disabled="sendingRequest"
+          class="btn btn-success float-right"
+          @click.prevent="submit"
         >
           Sign In
         </button>
@@ -39,9 +39,8 @@
 
 <script>
 import ErrorsList from "@/components/ErrorsList";
-import CONSTANTS from "@/constants";
-import axios from "axios";
 import { mapActions } from "vuex";
+import HttpProxy from "@/network/httpproxy.js";
 
 export default {
   name: "SignIn",
@@ -81,7 +80,8 @@ export default {
         }
       };
 
-      return await axios.post(`${CONSTANTS.BASE_URL}/users/login`, payload);
+      const proxy = new HttpProxy();
+      return await proxy.signin(payload);
     }
   }
 };

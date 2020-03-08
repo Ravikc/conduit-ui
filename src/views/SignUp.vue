@@ -47,9 +47,8 @@
 
 <script>
 import ErrorsList from "@/components/ErrorsList";
-import CONSTANTS from "@/constants";
-import axios from "axios";
 import { mapActions } from "vuex";
+import HttpProxy from "@/network/httpproxy.js";
 
 export default {
   name: "SignUp",
@@ -72,12 +71,14 @@ export default {
         this.errors = [];
         this.sendingRequest = true;
         const response = await this.registerUser();
+        console.log(response);
         this.setUser(response.data.user);
         this.$router.replace("/home");
       } catch (e) {
-        if (e.response.status === 400 || e.response.status === 422) {
-          this.errors = e.response.data.errors.body;
-        }
+        console.log(e);
+        // if (e.response.status === 400 || e.response.status === 422) {
+        //   this.errors = e.response.data.errors.body;
+        // }
       } finally {
         this.sendingRequest = false;
       }
@@ -91,7 +92,8 @@ export default {
         }
       };
 
-      return await axios.post(`${CONSTANTS.BASE_URL}/users`, payload);
+      const proxy = new HttpProxy();
+      return await proxy.registerUser(payload);
     }
   }
 };

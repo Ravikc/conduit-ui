@@ -70,6 +70,12 @@ export default {
   computed: {
     ...mapGetters(["user"])
   },
+  created() {
+    this.profilePictureUrl = this.user.image;
+    this.userName = this.user.username;
+    this.bio = this.user.bio;
+    this.email = this.user.email;
+  },
   methods: {
     ...mapActions(["logout"]),
     async onFormSubmit() {
@@ -96,12 +102,6 @@ export default {
       this.logout();
       this.$router.replace("/home");
     }
-  },
-  created() {
-    this.profilePictureUrl = this.user.image;
-    this.userName = this.user.username;
-    this.bio = this.user.bio;
-    this.email = this.user.email;
   }
 };
 </script>
