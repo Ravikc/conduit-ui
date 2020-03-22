@@ -48,9 +48,8 @@
 <script>
 import BaseInput from "@/components/BaseComponents/BaseInput";
 import BaseTextArea from "@/components/BaseComponents/BaseTextArea";
-import CONSTANTS from "@/constants";
-import axios from "axios";
 import { mapGetters, mapActions } from "vuex";
+import HttpProxy from "@/network/httpproxy";
 
 export default {
   name: "Settings",
@@ -64,7 +63,8 @@ export default {
       userName: "",
       bio: "",
       email: "",
-      password: ""
+      password: "",
+      busy: false
     };
   },
   computed: {
@@ -77,26 +77,49 @@ export default {
     this.email = this.user.email;
   },
   methods: {
-    ...mapActions(["logout"]),
+    ...mapActions(["logout", "setUser"]),
     async onFormSubmit() {
-      await axios({
-        method: "put",
-        baseURL: CONSTANTS.BASE_URL,
-        url: "/users",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${this.user.token}`
-        },
-        data: {
-          user: {
-            userName: this.userName,
-            email: this.email,
-            bio: this.bio,
-            password: this.password,
-            image: this.profilePictureUrl
-          }
+      this.busy = true;
+      try {
+        const response = await this.updateUser();
+        this.setUser(response.data.user);
+      } catch {
+        console.log("error");
+      } finally {
+        this.busy = false;
+      }
+    },
+    async updateUser() {
+      const dto = {
+        user: {
+          userName: this.userName,
+          email: this.email,
+          bio: this.bio,
+          password: this.password,
+          image: this.profilePictureUrl
         }
-      });
+      };
+
+      const proxy = new HttpProxy();
+      return await proxy.updateUser(dto);
+      // return await axios({
+      //   method: "put",
+      //   baseURL: CONSTANTS.BASE_URL,
+      //   url: "/users",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     Authorization: `Bearer ${this.user.token}`
+      //   },
+      //   data: {
+      //     user: {
+      //       userName: this.userName,
+      //       email: this.email,
+      //       bio: this.bio,
+      //       password: this.password,
+      //       image: this.profilePictureUrl
+      //     }
+      //   }
+      // });
     },
     onLogout() {
       this.logout();

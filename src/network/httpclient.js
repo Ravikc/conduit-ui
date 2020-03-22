@@ -30,7 +30,14 @@ export default class HttpClient {
 
   getRequestInterceptor() {
     return config => {
-      console.log(config);
+      const token = this.getToken();
+      if (token) {
+        config.headers = {
+          ...config.headers,
+          Authorization: `Bearer ${token}`
+        };
+      }
+
       return config;
     };
   }
@@ -46,5 +53,10 @@ export default class HttpClient {
     return error => {
       console.log(error);
     };
+  }
+
+  getToken() {
+    const user = localStorage.getItem("user");
+    return user ? JSON.parse(user).token : null;
   }
 }

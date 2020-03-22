@@ -17,4 +17,8 @@ export default class HttpProxy {
   async updateUser(dto) {
     return await this.httpClient.put(URL_CONSTANTS.UPDATE_USER, dto);
   }
+
+  async publishArticle(dto) {
+    return await this.httpClient.post(URL_CONSTANTS.PUBLISH_ARTICLE, dto);
+  }
 }

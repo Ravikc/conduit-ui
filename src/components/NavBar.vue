@@ -7,10 +7,10 @@
         <li class="nav-item">
           <router-link to="/home" class="nav-link">Home</router-link>
         </li>
-        <li class="nav-item" v-if="isUserLoggedIn">
+        <li v-if="isUserLoggedIn" class="nav-item">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <router-link to="" class="nav-link">
+              <router-link to="/editor" class="nav-link">
                 <i class="fas fa-edit"></i>
                 <span>New Article</span>
               </router-link>
@@ -28,7 +28,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item" v-else>
+        <li v-else class="nav-item">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <router-link to="signin" class="nav-link">Sign In</router-link>

@@ -5,6 +5,7 @@ import SignIn from "./views/SignIn";
 import Profile from "./views/Profile";
 import Settings from "./views/Settings";
 import ArticleList from "./views/ArticleList";
+import NewArticle from "./views/NewArticle";
 import Home from "./views/Home";
 
 Vue.use(Router);
@@ -43,6 +44,11 @@ export default new Router({
           component: ArticleList
         }
       ]
+    },
+    {
+      path: "/editor",
+      name: "newarticle",
+      component: NewArticle
     },
     {
       path: "/about",
