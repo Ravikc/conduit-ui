@@ -1,6 +1,6 @@
 # conduit-ui
 
-This is the front-end part of project based on [https://github.com/gothinkster/realworld/](the open source Conduit Project).
+This is the front-end part of project based on [the open source Conduit Project.](https://github.com/gothinkster/realworld) 
 It's built with Vue
 
 ## Project setup
