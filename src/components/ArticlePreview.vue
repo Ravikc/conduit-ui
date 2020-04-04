@@ -8,7 +8,7 @@
         />
       </div>
       <div class="col-10">
-        <div class="row">Heading</div>
+        <div class="row">{{ article.Title }}</div>
         <div class="row">
           <small>Date</small>
         </div>
@@ -21,7 +21,7 @@
       <h4>Heading</h4>
     </div>
     <div class="row">
-      <p>Description</p>
+      <p>{{ article.description }}</p>
     </div>
     <div class="row">
       <div class="col-2">Read more..</div>
@@ -35,7 +35,10 @@
 
 <script>
 export default {
-  name: "ArticlePreview"
+  name: "ArticlePreview",
+  props: {
+    article: { type: Object, default: () => {} }
+  }
 };
 </script>
 

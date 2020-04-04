@@ -35,14 +35,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="row">
-      <div class="col-12">
-        <base-input
-          v-model="profilePictureUrl"
-          placeholder="URL of profile picture"
-        />
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -75,6 +67,7 @@ export default {
       this.busy = true;
       try {
         const response = await this.publishArticle();
+        console.log(response);
       } catch {
         alert("error wihle publishing article");
       } finally {

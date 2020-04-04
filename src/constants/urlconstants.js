@@ -3,5 +3,7 @@ export default {
   SIGN_UP: "/users",
   SIGN_IN: "/users/login",
   UPDATE_USER: "/users",
-  PUBLISH_ARTICLE: "/articles"
+  PUBLISH_ARTICLE: "/articles",
+  MY_FEED: "",
+  ARTICLES: "/articles"
 };

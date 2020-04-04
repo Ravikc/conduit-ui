@@ -21,4 +21,8 @@ export default class HttpProxy {
   async publishArticle(dto) {
     return await this.httpClient.post(URL_CONSTANTS.PUBLISH_ARTICLE, dto);
   }
+
+  async getArticles(dto) {
+    return await this.httpClient.get(URL_CONSTANTS.ARTICLES, dto);
+  }
 }

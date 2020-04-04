@@ -1,19 +1,19 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
   },
   extends: [
-    "eslint:recommended",
-    "plugin:vue/recommended",
-    "@vue/prettier",
-    "plugin:prettier/recommended"
+    "plugin:vue/essential",
+    "plugin:prettier/recommended",
+    "eslint:recommended"
   ],
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    "vue/no-async-in-computed-properties": "off",
   },
   parserOptions: {
-    parser: "babel-eslint"
-  }
+    parser: "babel-eslint",
+  },
 };
