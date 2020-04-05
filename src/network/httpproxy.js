@@ -25,4 +25,8 @@ export default class HttpProxy {
   async getArticles(dto) {
     return await this.httpClient.get(URL_CONSTANTS.ARTICLES, dto);
   }
+
+  async getMyFeed(dto) {
+    return await this.httpClient.get(URL_CONSTANTS.MY_FEED, dto);
+  }
 }

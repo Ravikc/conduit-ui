@@ -37,20 +37,22 @@ export default {
   asyncComputed: {
     async articleList() {
       if (this.activeTab === "myFeed") {
-        return this.getMyFeed();
+        return await this.getMyFeed();
       } else {
-        const response = await this.getAllArticles();
-        return response.data.articles;
+        return await this.getAllArticles();
       }
     },
   },
   methods: {
     async getAllArticles() {
       const proxy = new HttpProxy();
-      return await proxy.getArticles({});
+      const response = await proxy.getArticles({});
+      return response.data.articles;
     },
-    getMyFeed() {
-      return [];
+    async getMyFeed() {
+      const proxy = new HttpProxy();
+      const response = await proxy.getMyFeed({});
+      return response.data.articles;
     },
   },
 };

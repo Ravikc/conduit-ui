@@ -4,6 +4,6 @@ export default {
   SIGN_IN: "/users/login",
   UPDATE_USER: "/users",
   PUBLISH_ARTICLE: "/articles",
-  MY_FEED: "",
-  ARTICLES: "/articles"
+  MY_FEED: "/articles/feed",
+  ARTICLES: "/articles",
 };
