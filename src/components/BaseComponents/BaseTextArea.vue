@@ -16,12 +16,12 @@ export default {
     placeholder: { type: String, default: "" },
     disabled: { type: Boolean, default: false },
     value: { type: String, default: "" },
-    rows: { type: Number, default: 3 }
+    rows: { type: Number, default: 3 },
   },
   data() {
     return {};
   },
-  methods: {}
+  methods: {},
 };
 </script>
 

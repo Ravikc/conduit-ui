@@ -53,15 +53,15 @@ import { mapGetters } from "vuex";
 export default {
   data() {
     return {
-      selectedTabName: ""
+      selectedTabName: "",
     };
   },
   computed: {
-    ...mapGetters(["user"])
+    ...mapGetters(["user"]),
   },
   created() {
     this.selectedTabName = "MyArticles";
-  }
+  },
 };
 </script>
 

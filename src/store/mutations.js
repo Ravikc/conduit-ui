@@ -8,12 +8,12 @@ export default {
       JSON.stringify(user)
     );
   },
-  setUserFromLocalStorage: state => {
+  setUserFromLocalStorage: (state) => {
     const user = localStorage.getItem(CONSTANTS.LOCAL_STORAGE_USER_INFO_KEY);
     state.user = JSON.parse(user);
   },
-  logout: state => {
+  logout: (state) => {
     localStorage.clear();
     state.user = null;
-  }
+  },
 };

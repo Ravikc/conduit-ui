@@ -12,8 +12,8 @@ import ArticlePreview from "@/components/ArticlePreview";
 export default {
   name: "ArticleList",
   components: {
-    ArticlePreview
-  }
+    ArticlePreview,
+  },
 };
 </script>
 

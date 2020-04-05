@@ -9,8 +9,8 @@ export default class HttpClient {
       this.instance = axios.create({
         baseURL: URL_CONSTANTS.BASE_URL,
         headers: {
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       });
 
       const httpClient = new HttpClient();
@@ -29,12 +29,12 @@ export default class HttpClient {
   }
 
   getRequestInterceptor() {
-    return config => {
+    return (config) => {
       const token = this.getToken();
       if (token) {
         config.headers = {
           ...config.headers,
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         };
       }
 
@@ -43,14 +43,14 @@ export default class HttpClient {
   }
 
   getSuccessResponseInterceptor() {
-    return response => {
+    return (response) => {
       console.log(response);
       return response;
     };
   }
 
   getErrorResponseInterceptor() {
-    return error => {
+    return (error) => {
       console.log(error);
     };
   }

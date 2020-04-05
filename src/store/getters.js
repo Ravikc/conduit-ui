@@ -1,4 +1,4 @@
 export default {
-  user: state => state.user,
-  isUserLoggedIn: state => state.user && state.user.token
+  user: (state) => state.user,
+  isUserLoggedIn: (state) => state.user && state.user.token,
 };

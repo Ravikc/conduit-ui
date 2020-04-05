@@ -45,14 +45,14 @@ import HttpProxy from "@/network/httpproxy.js";
 export default {
   name: "SignIn",
   components: {
-    ErrorsList
+    ErrorsList,
   },
   data() {
     return {
       email: "",
       password: "",
       errors: [],
-      sendingRequest: false
+      sendingRequest: false,
     };
   },
   methods: {
@@ -76,14 +76,14 @@ export default {
       const payload = {
         user: {
           email: this.email,
-          password: this.password
-        }
+          password: this.password,
+        },
       };
 
       const proxy = new HttpProxy();
       return await proxy.signin(payload);
-    }
-  }
+    },
+  },
 };
 </script>
 

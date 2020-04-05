@@ -55,7 +55,7 @@ export default {
   name: "Settings",
   components: {
     BaseInput,
-    BaseTextArea
+    BaseTextArea,
   },
   data() {
     return {
@@ -64,11 +64,11 @@ export default {
       bio: "",
       email: "",
       password: "",
-      busy: false
+      busy: false,
     };
   },
   computed: {
-    ...mapGetters(["user"])
+    ...mapGetters(["user"]),
   },
   created() {
     this.profilePictureUrl = this.user.image;
@@ -96,8 +96,8 @@ export default {
           email: this.email,
           bio: this.bio,
           password: this.password,
-          image: this.profilePictureUrl
-        }
+          image: this.profilePictureUrl,
+        },
       };
 
       const proxy = new HttpProxy();
@@ -124,8 +124,8 @@ export default {
     onLogout() {
       this.logout();
       this.$router.replace("/home");
-    }
-  }
+    },
+  },
 };
 </script>
 

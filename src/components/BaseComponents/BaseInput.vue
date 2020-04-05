@@ -4,7 +4,7 @@
     class="form-control"
     :class="{
       'form-control-lg': size === 'lg',
-      'form-control-sm': size === 'sm'
+      'form-control-sm': size === 'sm',
     }"
     :placeholder="placeholder"
     :type="type"
@@ -21,14 +21,14 @@ export default {
     disabled: { type: Boolean, default: false },
     value: { type: String, default: "" },
     size: { type: String, default: "md" },
-    type: { type: String, default: "text" }
+    type: { type: String, default: "text" },
   },
   data() {
     return {};
   },
   methods: {
-    handleInput() {}
-  }
+    handleInput() {},
+  },
 };
 </script>
 

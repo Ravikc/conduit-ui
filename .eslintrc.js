@@ -6,7 +6,7 @@ module.exports = {
   extends: [
     "plugin:vue/essential",
     "plugin:prettier/recommended",
-    "eslint:recommended"
+    "eslint:recommended",
   ],
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",

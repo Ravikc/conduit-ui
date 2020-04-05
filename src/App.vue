@@ -15,7 +15,7 @@ import { mapActions } from "vuex";
 export default {
   name: "App",
   components: {
-    NavBar
+    NavBar,
   },
   created() {
     const userInfo = localStorage.getItem(
@@ -26,8 +26,8 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["setUser"])
-  }
+    ...mapActions(["setUser"]),
+  },
 };
 </script>
 

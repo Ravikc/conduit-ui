@@ -53,7 +53,7 @@ import HttpProxy from "@/network/httpproxy.js";
 export default {
   name: "SignUp",
   components: {
-    ErrorsList
+    ErrorsList,
   },
   data() {
     return {
@@ -61,7 +61,7 @@ export default {
       email: "",
       password: "",
       errors: [],
-      sendingRequest: false
+      sendingRequest: false,
     };
   },
   methods: {
@@ -88,14 +88,14 @@ export default {
         user: {
           username: this.userName,
           email: this.email,
-          password: this.password
-        }
+          password: this.password,
+        },
       };
 
       const proxy = new HttpProxy();
       return await proxy.registerUser(payload);
-    }
-  }
+    },
+  },
 };
 </script>
 

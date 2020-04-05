@@ -7,5 +7,5 @@ export default {
   },
   logout: ({ commit }) => {
     commit("logout");
-  }
+  },
 };

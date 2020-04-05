@@ -37,8 +37,8 @@
 export default {
   name: "ArticlePreview",
   props: {
-    article: { type: Object, default: () => {} }
-  }
+    article: { type: Object, default: () => {} },
+  },
 };
 </script>
 

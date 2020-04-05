@@ -48,8 +48,8 @@ import { mapGetters } from "vuex";
 export default {
   name: "NavBar",
   computed: {
-    ...mapGetters(["user", "isUserLoggedIn"])
-  }
+    ...mapGetters(["user", "isUserLoggedIn"]),
+  },
 };
 </script>
 

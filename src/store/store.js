@@ -12,5 +12,5 @@ export const store = new Vuex.Store({
   state: STATE,
   mutations: MUTATIONS,
   getters: GETTERS,
-  actions: ACTIONS
+  actions: ACTIONS,
 });

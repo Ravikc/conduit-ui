@@ -4,6 +4,6 @@ export default {
     token: null,
     username: null,
     bio: null,
-    image: null
-  }
+    image: null,
+  },
 };

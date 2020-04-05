@@ -47,20 +47,20 @@ export default {
   name: "NewArticle",
   components: {
     BaseInput,
-    BaseTextArea
+    BaseTextArea,
   },
   data() {
     return {
       title: "",
       description: "",
       body: "",
-      busy: false
+      busy: false,
     };
   },
   computed: {
     canPublish() {
       return this.title && this.description && this.body;
-    }
+    },
   },
   methods: {
     async onClick() {
@@ -79,14 +79,14 @@ export default {
         article: {
           title: this.title,
           description: this.description,
-          body: this.body
-        }
+          body: this.body,
+        },
       };
 
       const proxy = new HttpProxy();
       return await proxy.publishArticle(dto);
-    }
-  }
+    },
+  },
 };
 </script>
 
